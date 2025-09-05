@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <title>qga7</title>
+    <style>
+    	body {
+    height: 100vh;
+
+    background-image: 
+        linear-gradient(to bottom, black, black, rgba(0, 0, 0, 0.8)), 
+        url('https://raw.githubusercontent.com/Axolotl-in-void/the-web-pages/refs/heads/main/baba.png');
+    
+    background-repeat: no-repeat, repeat;       /* gradient no-repeat, image tiles */
+    background-size: 100% 100%, 30px 30px;   /* gradient fills viewport, image scaled down */
+    background-position: center, top left;     /* gradient centered, image tiles from top-left */
+
+        color: white;
+        margin: 0;
+  		  padding: 0;
+        font-family: 'OCR A', monospace;
+      }
+  		.header-bar {
+    		height: 50px;
+    		background-image: url("https://raw.githubusercontent.com/Axolotl-in-void/the-web-pages/refs/heads/main/baba.png");
+    		background-repeat: repeat-x;
+    		background-position: top center;
+    		background-size: auto 50px;
+    		box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  		}
+      #wrapper {
+         position: center;
+      }
+           .fixed-bottom-left {
+      position: fixed;     /* Keeps it fixed relative to the viewport */
+      bottom: 20px;        /* Distance from the bottom of the viewport */
+      left: 20px;          /* Distance from the left of the viewport */
+      background-color: #c9bfb3;
+      color: gray;
+      padding: 5px 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 9999;       /* Ensures it stays on top of other elements */
+    }
+        /* Popout button */
+  #popoutButton {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  /* Popout box */
+  #popoutBox {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    width: 400px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+  }
+
+  /* Grid layout for tiles */
+  .tile-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .tile {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .tile img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .tile button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .tile button:hover {
+    background-color: #27ae60;
+  }
+   /* Floating Discord Embed */
+  .discord-embed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #2c2f33;
+    border-radius: 8px;
+    background-color: #36393f;
+    color: #ffffff;
+    padding: 12px;
+    max-width: 320px;
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+
+  .discord-embed:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  .discord-embed img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .discord-embed .content {
+    flex: 1;
+  }
+
+  .discord-embed .title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .discord-embed .description {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .discord-embed .button {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #5865f2;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .discord-embed .button:hover {
+    background-color: #4752c4;
+  }
+    </style>
+    <script>
+          const toggleButton = document.getElementById('menu-toggle');
+    const sideMenu = document.getElementById('side-menu');
+
+    toggleButton.addEventListener('click', () => {
+      sideMenu.classList.toggle('show');
+    });
+      const toggleButton = document.getElementById('menu-toggle');
+const sideMenu = document.getElementById('side-menu');
+
+toggleButton.addEventListener('click', () => {
+  sideMenu.classList.toggle('show');
+});
+
+/* Storing user's device details in a variable*/
+let details = navigator.userAgent;
+
+/* Creating a regular expression 
+containing some mobile devices keywords 
+to search it in details string*/
+let regexp = /android|iphone|kindle|ipad/i;
+
+/* Using test() method to search regexp in details
+it returns boolean value*/
+let isMobileDevice = regexp.test(details);
+      
+if (isMobileDivice) {
+  document.getElementById("music").style.scale = "5";
+}
+  const button = document.getElementById('popoutButton');
+  const popout = document.getElementById('popoutBox');
+
+  button.addEventListener('click', () => {
+    popout.style.display = popout.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Optional: close popout when clicking outside
+  window.addEventListener('click', (e) => {
+    if (!popout.contains(e.target) && !button.contains(e.target)) {
+      popout.style.display = 'none';
+    }
+  });
+      
+    </script>
+  </head>
+  <body>
+  <div class="header-bar">
+    <div class="menu-container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
+    <div id="wrapper">
+      <h1>WELCOME TO QGA7.COM (WILL BE REAL, WORRY)</h1>
+    </div>
+<button id="popoutButton">Show Tiles</button>
+
+<div id="popoutBox">
+  <div class="tile-container">
+    <div class="tile">
+      <img src="https://via.placeholder.com/100" alt="Image 1">
+      <p>Item 1</p>
+      <button>Click Me</button>
+    </div>
+    <div class="tile">
+      <img src="https://via.placeholder.com/100" alt="Image 2">
+      <p>Item 2</p>
+      <button>Click Me</button>
+    </div>
+    <div class="tile">
+      <img src="https://via.placeholder.com/100" alt="Image 3">
+      <p>Item 3</p>
+      <button>Click Me</button>
+    </div>
+    <div class="tile">
+      <img src="https://via.placeholder.com/100" alt="Image 4">
+      <p>Item 4</p>
+      <button>Click Me</button>
+    </div>
+  </div>
+</div>
+<a href="https://discord.gg/TWpUMJ9rmp" class="discord-embed" target="_blank">
+  <img src="https://cdn.discordapp.com/icons/1406634404067016714/69d16be8135a589325cb1343d362d78f.webp?size=1024" alt="Discord Logo">
+  <div class="content">
+    <div class="title">Joim Our Diskourd! :3</div>
+    <div class="description">Surveys for every1.</div>
+    <div><span class="button">Joim Nom</span></div>
+  </div>
+</a>
+    <div id="music" class="fixed-bottom-left"> 
+    <h3>
+      Background music
+    </h3>
+    <audio controls volume="0.1" autoplay loop>
+  			<source src="https://raw.githubusercontent.com/Axolotl-in-void/the-web-pages/refs/heads/main/Fractone%20Village%20(Hilltop%20Layer)%20Donkey%20Kong%20Bananza%20(Original%20Soundtrack).mp3" type="audio/mpeg">
+        Your browser does not support the audio tag. <!-- DO NOT REMOVE -->
+			</audio>
+      </div> <!-- put this at the bottom where it should be -->
+  </body>
+</html>
+
+<!-- this is background immage url https://raw.githubusercontent.com/Axolotl-in-void/the-web-pages/refs/heads/main/checkerboardblue.jpg-->
+<!-- can i add background music?--
+yeah>
